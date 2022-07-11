@@ -1,0 +1,10 @@
+.navbar{
+    background: deepskyblue;
+    grid-area: n;
+}
+.item{
+    color: white;
+}
+.item.active{
+    color: bisque;
+}
