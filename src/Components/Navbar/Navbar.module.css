@@ -1,10 +1,12 @@
 .navbar{
     background: deepskyblue;
     grid-area: n;
+    padding: 20px;
 }
-.item{
+.item a{
     color: white;
+    text-decoration: none;
 }
-.item.active{
-    color: bisque;
+.item a.active{
+    color: coral;
 }

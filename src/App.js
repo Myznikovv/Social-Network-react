@@ -9,17 +9,17 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 const App = () => {
     return (
         <div className='app-wrapper'>
-            <Header/>
-            <Navbar/>
-            <div className='content'>
-                <BrowserRouter>
+            <BrowserRouter>
+                <Header/>
+                <Navbar/>
+                <div className='content'>
                     <Routes>
                         <Route path='' element={<Profile/>}/>
                         <Route path='/profile' element={<Profile/>}/>
                         <Route path='/dialogues' element={<Dialogues/>}/>
                     </Routes>
-                </BrowserRouter>
-            </div>
+                </div>
+            </BrowserRouter>
         </div>
     );
 }
