@@ -1,0 +1,16 @@
+.dialogues{
+padding: 10px;
+}
+.dialog{
+padding: 2px;
+}
+.messages{
+padding: 10px;
+}
+.message{
+padding:2px;
+}
+.content{
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+}

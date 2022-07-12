@@ -5,13 +5,17 @@ import Post from "./Post/Post";
 
 const Posts = ()=>{
     return(
-        <div>
+        <div className={s.postsBlock}>
             My posts
+            <div>
+                <textarea>New Post</textarea>
+                <button>Add Post</button>
+            </div>
             <div>
                 New posts
             </div>
-            <Post content='tjkntnt' count="6"/>
-            <Post content="Тег2" count="4"/>
+            <Post content='Сегодня первый день лета, сказал бы я)' count="6"/>
+            <Post content="Кокое у меня сегодня хорошее настроение" count="4"/>
         </div>
     )
 }
