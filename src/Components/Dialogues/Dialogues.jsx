@@ -18,9 +18,8 @@ const Message =(props)=>{
     )
 }
 
-const Dialogues = ()=>{
-
-    let dialogData = [
+const Dialogues = (props)=>{
+    {/*let dialogData = [
         {id: 0, name:'Vitaly'},
         {id: 1, name:'Aleksandr'},
         {id: 2, name:'Kate'},
@@ -31,7 +30,9 @@ const Dialogues = ()=>{
     let messageData = [
         {id: 0, message:'Пойдем есть'},
         {id: 1, message:'Как дела с ариной'},
-    ]
+    ]*/}
+    let dialogData = props.listOfDialogues;
+    let messageData = props.listOfMessages;
 
     let dialogs = dialogData.map(dialog=>{
         return <Dialog name={dialog.name} id={dialog.id}/>
