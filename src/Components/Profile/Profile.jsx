@@ -12,7 +12,7 @@ const Profile = (props) => {
                 listOfPosts={props.state.postsData}
                 addPosts={props.addPosts}
                 newText={props.state.newTextPost}
-                addNewText={props.state.addNewText}
+                addNewText={props.addNewText}
             />
         </div>);
 }
