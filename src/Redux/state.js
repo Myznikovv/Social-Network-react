@@ -1,5 +1,3 @@
-import {renderNewAppTree} from "../render";
-
 let state = {
     dialogsPage: {
         messageData:
@@ -30,14 +28,18 @@ let state = {
         }
     }
 }
-
 export let addPost = (postMessage)=>{
+    let id=5;
     let newPost ={
-        id: 5, content:postMessage, likeCount :0
+        id: id, content:postMessage, likeCount :0
     }
+    id++
     state.profilePage.postsData.push(newPost);
     renderNewAppTree(state);
 }
+let renderNewAppTree = ()=>{console.log('change')}
 
-
+export const subscribe = (observer)=>{
+    renderNewAppTree = observer;
+}
 export default state
