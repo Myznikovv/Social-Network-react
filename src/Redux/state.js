@@ -22,15 +22,22 @@ let state = {
                 {id: 0, content: 'Сегодня первый день лета, сказал бы я)', likeCount: 6},
                 {id: 1, content: "Кокое у меня сегодня хорошее настроение", likeCount: 4},
                 {id: 2, content: "Кокое у меня сегодня так себе настроение", likeCount: 0},
-            ]
+            ],
+        newTextPost:'new post',
+        addNewText: (textAreaMessage)=>{
+            state.profilePage.newTextPost = textAreaMessage;
+            renderNewAppTree(state);
+        }
     }
 }
 
 export let addPost = (postMessage)=>{
     let newPost ={
-        id:5, content:postMessage, likeCount :0
+        id: 5, content:postMessage, likeCount :0
     }
     state.profilePage.postsData.push(newPost);
     renderNewAppTree(state);
 }
+
+
 export default state

@@ -5,6 +5,7 @@ import Post from "./Post/Post";
 
 const Posts = (props) => {
 
+
     let newPostElem = React.createRef();
     let postsData = props.listOfPosts;
 
@@ -16,11 +17,17 @@ const Posts = (props) => {
         let text = newPostElem.current.value;
         props.addPosts(text);
     }
+
+    let onPostChange = ()=>{
+        let text = newPostElem.current.value;
+        props.addNewText(text);
+    }
+
     return (
         <div className={s.postsBlock}>
             My posts
             <div>
-                <textarea ref={newPostElem}>New Post</textarea>
+                <textarea onChange={onPostChange} ref={newPostElem} value={props.newText}/>
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div>
