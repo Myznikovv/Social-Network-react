@@ -15,13 +15,13 @@ const Posts = (props) => {
 
     let addPost = ()=>{
         let text = newPostElem.current.value;
-        props.addPosts(text);
-        props.addNewText('');
+        props.detach({type:'ADD-POST', postMessage:text});
+        props.detach({type:'ADD-NEW-TEXT', textAreaMessage:''});
     }
 
     let onPostChange = ()=>{
         let text = newPostElem.current.value;
-        props.addNewText(text);
+        props.detach({type:'ADD-NEW-TEXT', textAreaMessage:text});
     }
 
     return (

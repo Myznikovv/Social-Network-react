@@ -12,8 +12,7 @@ export let renderNewAppTree=(state)=>{
         <React.StrictMode>
             <App
                 data={state}
-                addPost={store.addPost.bind(store)}
-                addNewText={store.addNewText.bind(store)}
+                detach={store.detach.bind(store)}
             />
         </React.StrictMode>
     );

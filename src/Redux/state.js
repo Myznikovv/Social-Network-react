@@ -28,7 +28,7 @@ let store ={
     getState() {
         return this._state ;
     },
-    addPost(postMessage){
+    /*addPost(postMessage){
         let id=5;
         let newPost ={
             id:id, content:postMessage, likeCount :0
@@ -44,6 +44,21 @@ let store ={
     renderNewAppTree(){console.log('change')},
     subscribe(observer){
         this.renderNewAppTree = observer;
+    },*/
+    detach(action){
+       if (action.type === "ADD-POST") {
+           let id=5;
+           let newPost ={
+               id:id, content:action.postMessage, likeCount :0
+           }
+           id++
+           this._state.profilePage.postsData.push(newPost);
+           this.renderNewAppTree(this._state);
+       }else if(action.type === "ADD-NEW-TEXT"){
+           this._state.profilePage.newTextPost = action.textAreaMessage;
+           this.renderNewAppTree(this._state);
+       }
+
     }
 }
 export default store
