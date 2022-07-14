@@ -62,4 +62,16 @@ let store ={
 
     }
 }
+
+export const createAddPostAction = (text) => {
+    return (
+        {type: 'ADD-POST', postMessage: text}
+    );
+}
+
+export const createAddNewTextAction = (text) =>{
+    return(
+        {type: 'ADD-NEW-TEXT', textAreaMessage: text}
+    )
+}
 export default store

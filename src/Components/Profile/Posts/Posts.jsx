@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Posts.module.css';
 import Post from "./Post/Post";
+import {createAddNewTextAction, createAddPostAction} from "../../../Redux/state";
 
 
 const Posts = (props) => {
@@ -13,15 +14,18 @@ const Posts = (props) => {
         return (<Post content={post.content} count={post.likeCount}/>);
     })
 
-    let addPost = ()=>{
+    let addPost = () => {
         let text = newPostElem.current.value;
-        props.detach({type:'ADD-POST', postMessage:text});
-        props.detach({type:'ADD-NEW-TEXT', textAreaMessage:''});
+        let action = createAddPostAction(text);
+        props.detach(action);
+        action = createAddNewTextAction('')
+        props.detach(action);
     }
 
-    let onPostChange = ()=>{
+    let onPostChange = () => {
         let text = newPostElem.current.value;
-        props.detach({type:'ADD-NEW-TEXT', textAreaMessage:text});
+        let action = createAddNewTextAction(text)
+        props.detach(action);
     }
 
     return (
