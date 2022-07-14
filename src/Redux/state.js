@@ -41,10 +41,11 @@ let store ={
         this._state.profilePage.newTextPost = textAreaMessage;
         this.renderNewAppTree(this._state);
     },
+    */
     renderNewAppTree(){console.log('change')},
     subscribe(observer){
         this.renderNewAppTree = observer;
-    },*/
+    },
     detach(action){
        if (action.type === "ADD-POST") {
            let id=5;
