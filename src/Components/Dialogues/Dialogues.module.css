@@ -1,16 +1,29 @@
 .dialogues{
-padding: 10px;
+    padding: 10px;
+    border-right: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
 }
-.dialog{
-padding: 2px;
-}
+
 .messages{
-padding: 10px;
+    position:relative;
+    padding: 10px 10px 55px 10px;
+
+
 }
-.message{
-padding:2px;
-}
+
 .content{
     display: grid;
     grid-template-columns: 4fr 8fr;
+    border: 1px black;
+}
+.input{
+    display: inline-flex;
+    position: absolute;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: stretch;
+
+}
+.input textarea{
+    width: 8fr;
 }

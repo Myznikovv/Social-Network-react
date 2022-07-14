@@ -1,0 +1,10 @@
+.message{
+    padding:2px;
+    display: flex;
+    align-content: center;
+}
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}

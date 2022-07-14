@@ -1,45 +1,49 @@
 import React from "react";
 import s from './Dialogues.module.css';
-import {NavLink} from "react-router-dom";
+import Message from "./Message/Message";
+import Dialog from "./Dialog/Dialog";
+import {createAddNewMessageAction, createAddNewTextMessageAction} from "../../Redux/dialoguesPageReducer";
 
-const Dialog = (props)=>{
-    let dialogPath = `/dialogues/${props.id}`;
-    return(
-        <div className={s.dialog}>
-            <NavLink to={dialogPath}>{props.name}</NavLink>
-        </div>
-    )
-}
-const Message =(props)=>{
-    return(
-        <div className={s.message}>
-            {props.content}
-        </div>
-    )
-}
-
-const Dialogues = (props)=>{
+const Dialogues = (props) => {
     let dialogData = props.state.dialogData;
     let messageData = props.state.messageData;
 
-    let dialogs = dialogData.map(dialog=>{
-        return <Dialog name={dialog.name} id={dialog.id}/>
+    let dialogs = dialogData.map(dialog => {
+        return <Dialog name={dialog.name} id={dialog.id} src={dialog.src}/>
     })
-    let messages = messageData.map(message=>{
-        return  <Message content={message.message}/>
+    let messages = messageData.map(message => {
+        return <Message content={message.message}/>
     })
 
-    return (
-        <div className={s.content}>
-            <div className={s.dialogues}>
-                {dialogs}
-            </div>
-            <div className={s.messages}>
-                {messages}
+    let textAreaRef = React.createRef();
+
+
+    let addMessage = ()=>{
+        let text = textAreaRef.current.value;
+        let action = createAddNewMessageAction(text);
+        props.detach(action);
+        text = '';
+        action = createAddNewTextMessageAction(text);
+        props.detach(action);
+    }
+    let onMessageChange = ()=>{
+        let text = textAreaRef.current.value;
+        let action = createAddNewTextMessageAction(text);
+        props.detach(action);
+    }
+
+    return (<div className={s.content}>
+        <div className={s.dialogues}>
+            {dialogs}
+        </div>
+        <div className={s.messages}>
+            {messages}
+            <div className={s.input}>
+                <textarea onChange={onMessageChange}  ref={textAreaRef} value={props.state.newTextMessage}></textarea>
+                <button onClick={addMessage}>Отправить</button>
             </div>
         </div>
-    );
-
+    </div>)
 }
 
 export default Dialogues;

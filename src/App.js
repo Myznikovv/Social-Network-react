@@ -21,7 +21,13 @@ const App = (props) => {
                         />
                         }
                         />
-                        <Route path='/dialogues/*' element={<Dialogues  state={props.data.dialogsPage}/>}/>
+                        <Route
+                            path='/dialogues/*'
+                            element={
+                            <Dialogues
+                                state={props.data.dialogsPage}
+                                detach={props.detach}
+                            />}/>
                     </Routes>
                 </div>
             </BrowserRouter>
