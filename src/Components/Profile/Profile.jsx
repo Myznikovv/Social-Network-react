@@ -10,7 +10,7 @@ const Profile = (props) => {
             <Posts
                 listOfPosts={props.state.postsData}
                 newText={props.state.newTextPost}
-                detach={props.detach}
+                dispatch={props.dispatch}
             />
         </div>);
 }

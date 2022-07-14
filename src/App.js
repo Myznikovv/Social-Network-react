@@ -17,7 +17,7 @@ const App = (props) => {
                         <Route path='/profile/*' element={
                             <Profile
                             state={props.data.profilePage}
-                            detach={props.detach}
+                            dispatch={props.dispatch}
                         />
                         }
                         />
@@ -26,7 +26,7 @@ const App = (props) => {
                             element={
                             <Dialogues
                                 state={props.data.dialogsPage}
-                                detach={props.detach}
+                                dispatch={props.dispatch}
                             />}/>
                     </Routes>
                 </div>

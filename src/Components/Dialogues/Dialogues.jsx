@@ -21,16 +21,17 @@ const Dialogues = (props) => {
     let addMessage = ()=>{
         let text = textAreaRef.current.value;
         let action = createAddNewMessageAction(text);
-        props.detach(action);
+        props.dispatch(action);
         text = '';
         action = createAddNewTextMessageAction(text);
-        props.detach(action);
+        props.dispatch(action);
     }
     let onMessageChange = ()=>{
         let text = textAreaRef.current.value;
         let action = createAddNewTextMessageAction(text);
-        props.detach(action);
+        props.dispatch(action);
     }
+
 
     return (<div className={s.content}>
         <div className={s.dialogues}>
